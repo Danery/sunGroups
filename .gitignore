@@ -10,3 +10,4 @@ app/[Cc]onfig/database.php
 *.*~
 vendor/
 *.lock
+test/raw/
