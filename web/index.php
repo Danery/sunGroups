@@ -8,18 +8,10 @@
   $app = new Silex\Application();
   $app['debug'] = true;
 
-  $app->get('/',function( ) {
+  $app->get('/web/',function( ) {
     return 'HELLO Silex';
   });
 
-  $app->get('/createbook',function( ) {
-        create_book(2);
-        return 'DONE..';
-  });
-
-  $app->get('/info', function() {
-          phpinfo();
-  });
   $app->run();
   R::close();
 ?>
