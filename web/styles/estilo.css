@@ -1,0 +1,336 @@
+/* CSS Document */
+
+@charset "utf-8";
+
+body {
+	margin:0px auto;
+	padding:0px;
+	background-color: #aaaaaa;
+}
+
+/*Propiedades del contenedor de la aplicación Web*/
+#contenedor_base {
+	width: 1320px;
+	height: 800px;
+	position:relative;
+	margin:0 auto
+}
+
+/*Propiedades de los contenedores*/
+#contenedor_izquierdo, 
+#contenedor_derecho, 
+#contenedor_central {
+	height:800px;
+	position:absolute;
+	top:0;
+}
+
+#contenedor_izquierdo, #contenedor_derecho{
+	color:#686C70;
+	text-align: left;
+	overflow: auto;
+	background-color:#FFFFFF;
+	background-repeat:no-repeat;
+}
+
+#contenedor_izquierdo{
+	left:0;
+	width:260px;
+	background-color:#A8A9AD;
+}
+
+#contenedor_derecho {
+	right:0;
+	width:260px;
+	border:solid 1px #888888;
+	border-top:0px;
+	background:#eeeeee;
+	height:799px;
+}
+
+#contenedor_central {
+	width:806px;
+	left:252px;
+	height:799px;
+	border-bottom:solid 1px #888888;
+	background-color:#ffffff;
+	/*color:#ccc;*/
+}
+
+/*Estilo de los contenedores*/
+.contenido
+{
+	background-color:#E7E7E8;
+	margin:5px;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.lateral{
+	float:left;
+	border: 1px solid;
+	border-color:#666666;
+	width:250px;
+	margin-top:1px;
+	height:500px;
+}
+
+.fondo_subtitulos
+{
+	margin-left:15px;
+	margin-right:15px;
+	border-bottom:dotted 1px #59585B;
+}
+
+.opciones_tabla
+{
+	background-color:transparent;
+	padding-bottom:0px;	
+	padding-top:0px;
+	border:0px;
+	height:20px;
+}
+
+/*Propiedades de los créditos*/
+#creditos{
+	width: 1320px;
+  position:absolute;
+	top:800px;
+	background-color:#58585A;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#ffffff;
+	font-size:10px;
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#creditos a{
+	color:#EDE296;
+}
+
+#creditos a:hover{
+	color:#15B8E0;
+}
+
+/*Propiedades del panel de publicaciones*/
+
+a {
+  color:#555555;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#15B8E0;
+}
+
+#panel_publicaciones {
+    font-size:0.8em;
+    list-style:none;
+    margin-left:13px;
+		margin-right:13px;
+		font-size:12px;
+}
+
+/*Propiedades de Sunburst*/
+#vis {
+    position:relative;
+    width:795px;
+    height:800px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+/* Propiedades de los textos*/
+.titulos
+{
+	background-color:#58585A;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 14px;
+	margin:0px;
+	padding:0px;
+	padding-left:19px;
+	width:233px;
+	height:28px;
+	line-height:26px;
+}
+
+.subtitulos
+{
+	font-size:15px;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#58595B;
+	font-variant:small-caps;
+	padding:10px;
+	padding-top:10px;
+	padding-bottom:0px;
+	line-height:19px;
+}
+
+.opciones_texto
+{
+	font-size:12px;
+	font-weight:normal;
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#000000;
+	font-variant:normal;
+	padding-left:10px;
+	padding-right:15px;
+	padding-bottom:10px;	
+	padding-top:0px;
+	border-width:thick;
+}
+
+pre {
+	background-color:#dddddd;
+	border:1px solid #CCCCCC;
+	font-size:10px;
+	margin-left:5px auto;
+	padding:10px;
+	width:210px;
+	font-family:Verdana, Geneva, sans-serif;	
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -webkit-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+/*Propiedades del menú buscar*/
+.caja_buscar{
+	border: 1px solid;
+	border-color:#666666;
+	width:250px;
+	height:30px;
+	float:left;
+}
+
+.buscar
+{
+	margin:5px;
+	margin-left:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	color:#FFFFFF;
+}
+
+input.button_buscar {
+    background-image: url(buscar_b.png); /* 25px x 25px */
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    padding-left: 20px;
+}
+
+input.text_buscarp {
+	border: solid 1px #58595b;
+	width:120px;
+	height:15px;
+	margin-left:4px;
+	margin-right:4px;
+}
+
+/*Árbol de navegación*/
+.home {
+	background-color:#ffffff;
+	border:1px solid #999999;
+	font-size:12px;
+	margin-left:15px;
+	margin-top:10px;
+	padding-left:12px;
+	padding-top:3px;
+	padding-bottom:0px;
+	width:50px;
+	height:20px;
+	font-family:Verdana, Geneva, sans-serif;
+	position:absolute;
+	color:#555;
+}
+
+/*Propiedades del "Ir a Remeri"*/
+.salir
+{
+	background-color:#000000;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+	padding-left:19px;
+	text-align:left;
+	width:233px;
+	height:25px;
+	line-height:30px;
+	border:#FFF;
+}
+
+.salir a
+{
+	color:#ffffff;
+}
+
+.salir a:hover
+{
+
+	color:#15B8E0;
+}
+
+/*Propiedades checkbox y línea de tiempo*/
+input[type="checkbox"] {
+	margin: 0px 5px 5px 0px;
+	border:solid 1px;
+}
+
+input.intervalo{
+	border: solid 1px #58595b; 
+	height:15px; 
+	color: #000000; 
+	font-weight: normal; 
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:12px; 
+	padding-left:35px;
+	width:75px;
+	margin-left:10px;
+}
+
+/*Estilo círculo*/
+path {
+  stroke: #fff;
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
+path:hover
+{
+	opacity: 0.5;
+}
+
+text {
+	pointer-events:none;
+	font-size:13px;
+	font-weight:normal;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#ffffff;
+	font-variant:normal;
+	padding-top:0px;
+};
+
+h1 {
+  text-align: center;
+  margin: .5em 0;
+}
+
+p#intro {
+  text-align: center;
+  margin: 1em 0;
+}
+
+#breadcrumbs { display: none; }

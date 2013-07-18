@@ -1,0 +1,100 @@
+[
+	{
+		"name": "espacio texto/plectura mexicano/pmundo hombre/pmexicana cultura/pnarrativa arte",
+		"children": 
+		[
+			{ 
+		  		"name": "José arte/pJuan carta"
+			},
+			{ 
+		  		"name": "texto mundo/pliteratura José"
+		  		
+			},
+			{ 
+		  		"name": "cultural sociedad/pidentidad espacio/plectura mexicana/pcultura narrativa/psiglo"
+			},
+			{ 
+		  		"name": "novela obra"
+			},
+			{ 
+		  		"name": "teatro"
+			},
+			{ 
+		  		"name": "mexicano hombre/phistoria"
+			}
+		]
+  	},
+	{
+		"name": "sistemas impacto/phacia empresas/ppacientes comunidad/pPotosí plan/ptiempo comportamiento",
+		"children": 
+		[
+			{ 
+		  		"name": "bajo herramienta/pzona región/porganizaciones mexicanas/pcreación construcción/psistemas imagen"
+			},
+			{ 
+		  		"name": "libre implementacion/pcomercio características/psociales pruebas/pelaboración valor/ppresencia alternativa"
+			},
+			{ 
+		  		"name": "poemas evolución/psector internet/pindustrial enfoque/palta busca/pservicios personas"
+			},
+			{ 
+		  		"name": "prevalencia muerte/pmunicipio agropecuaria"
+			},
+			{ 
+		  		"name": "comportamiento poemas"
+			}
+		]
+  	},
+	{
+		"name": "informacion México/pproceso desarrollo/pmediante diferentes/presultados nivel/pmayor tipo",
+		"children": 
+		[
+			{ 
+		  		"name": "desarrollo México/presultados diferentes/pcalidad tipo/pmedio través/p importancia investigación"
+			},
+			{ 
+		  		"name": "investigación resultados/pmedios estudiantes/pmedio"
+			},
+			{ 
+		  		"name": "capítulo investigación"
+			},
+			{ 
+		  		"name": "investigación modelo/pmedio cuales/pdiferentes mediante/pproceso industria/palimentos efecto"
+			}
+			,
+			{ 
+		  		"name": "tipo importancia/presultados mismo/ptravés características/pinvestigación proceso/pforma dentro"
+			}
+			,
+			{ 
+		  		"name": "modelo"
+			}
+			,
+			{ 
+		  		"name": "importancia"
+			}
+		]
+  	},
+	{
+		"name": "trabajo/pdesarrollo/psocial",
+		"children": 
+		[
+			{ 
+		  		"name": "desarrollo"
+			},
+			{ 
+		  		"name": "trabajo"
+			},
+			{ 
+		  		"name": "desarrollo trabajo"
+			},
+			{ 
+		  		"name": "trabajo/psocial"
+			},
+			{ 
+		  		"name": "social"
+			}
+		]
+  	}
+] 
+  

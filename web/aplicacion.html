@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SunGroups</title>
+<link type="image/x-icon" href="img/favicon" rel="icon" />
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon" />
+
+
+<!-- CSS Files: Hojas de estilo -->
+<link rel="stylesheet" type="text/css"  href="css/estilo" /> <!--Estilos-->
+<link rel="stylesheet" type="text/css"  href="css/styler" /> <!--Generales-->
+<link rel="stylesheet" type="text/css"  href="css/jquery-ui" /> <!--Estilo de la línea de tiempo-->
+
+<!--Librerías necesarias para el funcionamiento de Ajax y D3-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<!--Librerías necesarias para el funcionamiento de Jquery-->
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<!--Método para que funcione el deslizamiento de la línea de tiempo-->
+<script>
+    $(function() {
+        $( "#slider-vertical" ).slider({
+            orientation: "horizontal",
+            range: "min",
+            min: 1564,  <!--Año mínimo en el que empiezan las publicaciones-->
+            max: 2013,  <!--Año actual-->
+            slide: function( event, ui ) { 
+                $( "#amount" ).val( ui.value );
+            }
+        });
+        $( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+    });
+</script>
+
+</head>
+
+<body>
+	<div id="contenedor_base"> <!--Contenedor de todo-->
+		<div id="contenedor_izquierdo">   <!--Barra lateral izquierda-->
+  		<div class="caja_buscar" style="background-color:#000000;"> <!--Panel negro-->
+				<!--<div class="salir">
+				</div>-->
+      </div>
+      <!--Arbol de navegación-->
+      <div class="lateral" style="height:262px">
+				<div class="titulos">
+        	Ruta y posición actual
+        </div>
+        <div class="contenido"  style="height:224px">
+        	<div class="home">
+          	Home
+          </div>
+        </div>   
+     	</div>
+            
+     	<!--Filtros-->
+     	<div class="lateral">
+      	<div class="titulos">
+        	Filtros
+      	</div>
+				<!--De tiempo-->
+				<div class="contenido" style="height:461px">
+					<div class="fondo_subtitulos">
+						<div class="subtitulos"> de tiempo
+							<div id="slider-vertical" style="height: 5px; margin-top:15px;"></div>
+							<form name="fecha">
+								<p class="opciones_texto" style="font-size:12px;">
+									<label for="amount">Año:</label>
+									<input id="amount" class="intervalo" name="amount" disabled>
+								</p>
+							</form>
+																
+							<!--Checa el intervalo de fecha seleccionado-->
+							<script>   	
+								function intervalo()
+								{
+									var x = document.fecha.amount.value;
+									fecha= parseInt(x);
+								}
+							</script>
+					 </div>
+					</div>
+																
+					<!--De institución-->
+					<div class="fondo_subtitulos">
+						<div class="subtitulos">institución
+							<table class="opciones_tabla">
+								<tr>
+									<td class="opciones_tabla">
+										<form action="" class="opciones_texto" name="institucion" style="border-bottom:0px;">
+											<input type="checkbox" name="UASLP" value="" checked style="border:0px;">UASLP<br>                             
+											<input type="checkbox" name="UDLAP" value="" checked style="border:0px;">UDLAP<br>
+											<input type="checkbox" name="UAEH" value="" checked style="border:0px;">UAEH<br>
+											<input type="checkbox" name="UV" value="" checked style="border:0px;">UV<br>
+										</form>
+									</td>
+									<td  class="opciones_tabla">
+										<form action="" class="opciones_texto" name="institucion2">
+											<input type="checkbox" name="UAEMEX" value="" checked style="border:0px;">UAEMEX<br>
+											<input type="checkbox" name="ITESM" value="" checked style="border:0px;">ITESM<br>
+											<input type="checkbox" name="UDG" value="" checked style="border:0px;">UDG<br>
+											<input type="checkbox" name="UCSJ" value="" checked style="border:0px;">UCSJ<br>
+										</form>
+									</td>
+								</tr>
+							</table>
+														
+							<!--Valores que sirven para el funcionamiento del filtro-->
+							<!--<script>				
+								var uaslp,udlap,uaeh,uaemex,itesm,udg, uv, ucsj;
+															
+								function valorinstitucion()
+								{
+									if(document.institucion.UASLP.checked){uaslp=true;}
+									else {uaslp=false;}
+			
+									if(document.institucion.UDLAP.checked){udlap=true;}
+									else {udlap=false;}
+							
+									if(document.institucion.UAEH.checked){uaeh=true;}
+									else {uaeh=false;}
+									
+									if(document.institucion.UV.checked){uv=true;}
+									else {uv=false;}
+			
+									if(document.institucion2.UAEMEX.checked){uaemex=true;}
+									else {uaemex=false;}
+			
+									if(document.institucion2.ITESM.checked){itesm=true;}
+									else {itesm=false;}
+			
+									if(document.institucion2.UDG.checked){udg=true;}
+									 else {udg=false;}
+									
+									if(document.institucion2.UCSJ.checked){ucsj=true;}
+									else {ucsj=false;}
+								}
+															
+						</script>-->
+													
+					</div>
+				</div>               
+											
+				<!--De tipo-->
+				<div class="fondo_subtitulos" style="border:0px;">
+					<div class="subtitulos">tipo
+						<table class="opciones_tabla">
+							<tr>
+								<td class="opciones_tabla">
+									<form action="" class="opciones_texto" name="tipo" >
+										<input type="checkbox" name="tesisdigitales" value="" checked style="border:0px;">Tesis digitales<br>                             
+										<input type="checkbox" name="documentos" value="" checked style="border:0px;">Documentos<br> 
+										<input type="checkbox" name="elemento" value="" checked style="border:0px;">Elemento<br> 
+									</form> 
+								</td>
+							</tr>
+						</table>                          
+									
+						<!--Valores que sirven para el funcionamiento del filtro-->
+						<!--<script>
+							var tesisd,documento,elementos;
+																							
+							function valortipo(){
+								if(document.tipo.tesisdigitales.checked) {tesisd=true;}
+								else {tesisd=false;}
+																									
+								if(document.tipo.documentos.checked) {documento=true;}
+								else {documento=false;}
+													
+								if(document.tipo.elemento.checked) {elemento=true;}
+								else {elemento=false;}
+							}
+						</script>-->
+					</div>
+				</div>   
+			</div>
+		</div>           
+	</div>
+	<!--Visualización-->
+  <div id="contenedor_central">
+  	<div id="vis">
+			<script src="js/wheel"></script> 
+		</div>   
+  </div>
+    
+  <!--Panel en donde se muestran la publicaciones-->
+  <div id="contenedor_derecho">
+    <div id="panel_publicaciones"></div>
+  </div>
+  
+  <!--Creditos-->
+  <div id="creditos">
+    Realizado por <a href="mailto:nildagaln@gmail.com"> Nilda Galán Hernández</a>
+  </div>
+</div>
+</body>
+</html>
