@@ -11,3 +11,4 @@ app/[Cc]onfig/database.php
 vendor/
 *.lock
 web/test/raw/*
+composer.lock
