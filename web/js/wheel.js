@@ -37,7 +37,7 @@ var arc = d3.svg.arc()
 	.outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
 var archivo = "json/remeri2";
-d3.json(archivo,formando);
+d3.json("data?id=3&level=2",formando);
 
 function formando(json) 
 { 
@@ -75,19 +75,19 @@ function formando(json)
 	  
 	textEnter.append("tspan")
 		.attr("x", 0)
-		.text(function(d) { return d.depth ? d.name.split("/p")[0] : ""; });
+		.text(function(d) { return d.depth ? d.name.split(" ")[0] : ""; });
 	textEnter.append("tspan")
 		.attr("x", 0)
 		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[1] || "" : ""; });
+		.text(function(d) { return d.depth ? d.name.split(" ")[1] || "" : ""; });
 	textEnter.append("tspan")
 		.attr("x", 0)
 		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[2] || "" : ""; });
+		.text(function(d) { return d.depth ? d.name.split(" ")[2] || "" : ""; });
 	textEnter.append("tspan")
 		.attr("x", 0)
 		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[3] || "" : "" ; });
+		.text(function(d) { return d.depth ? d.name.split(" ")[3] || "" : "" ; });
 
 	function click(d) {  
 			
