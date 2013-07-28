@@ -7,8 +7,8 @@ var width = 780,
 	height = width,
 	radius = width / 2,
 	x = d3.scale.linear().range([0, 2 * Math.PI]),
-	y = d3.scale.pow().exponent(1.4).domain([0, 1]).range([0, radius]),
-	padding = 8,
+	y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]),
+	padding = 3,
 	duration = 1000;
 
 var div = d3.select("#vis");
@@ -62,7 +62,7 @@ function formando(json)
 				return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
 			}*/
 		) //distancia del centro
-		.attr("dy", "-1.0em") //posición a lo horizontal
+		.attr("dy", "-1.5em") //posición a lo horizontal
 		.attr("transform", 
 			function(d) {
 				var multiline = (d.name || "").split(" ").length > 1,
@@ -76,18 +76,14 @@ function formando(json)
 	textEnter.append("tspan")
 		.attr("x", 0)
 		.text(function(d) { return d.depth ? d.name.split("/p")[0] : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[1] || "" : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[2] || "" : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split("/p")[3] || "" : "" ; });
+
+	for (var num=1; num<6 ;num++)
+	{
+		textEnter.append("tspan")
+			.attr("x", 0)
+			.attr("dy", "1em")
+			.text(function(d) { return d.depth ? d.name.split("/p")[num] || "" : ""; });
+	}
 
 	function click(d) {  
 			
