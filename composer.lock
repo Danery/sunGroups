@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6b36fdd71c53884745b213ffa6496c8f",
+    "hash": "6d57e06a986cb9ef51878c01e37556e6",
     "packages": [
         {
             "name": "gabordemooij/redbean",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabordemooij/redbean.git",
-                "reference": "f27c3a8d849b5ad096882372ccefb64503ee35ae"
+                "reference": "7aba23f4f0889794a53f83b36f6318311a969262"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/f27c3a8d849b5ad096882372ccefb64503ee35ae",
-                "reference": "f27c3a8d849b5ad096882372ccefb64503ee35ae",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/7aba23f4f0889794a53f83b36f6318311a969262",
+                "reference": "7aba23f4f0889794a53f83b36f6318311a969262",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "Object Relational Mapping",
                 "orm"
             ],
-            "time": "2013-07-18 17:34:51"
+            "time": "2013-07-18 21:38:23"
         },
         {
             "name": "pimple/pimple",
