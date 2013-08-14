@@ -3,12 +3,12 @@
 // License: http://www.jasondavies.com/coffee-wheel/LICENSE.txt
 
 //Variables
-var width = 780,
+var width = 645,
 	height = width,
 	radius = width / 2,
 	x = d3.scale.linear().range([0, 2 * Math.PI]),
-	y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]),
-	padding = 3,
+	y = d3.scale.pow().exponent(1.5).domain([0, 1]).range([0, radius]),
+	padding = 10,
 	duration = 1000;
 
 var div = d3.select("#vis");
@@ -36,9 +36,10 @@ var arc = d3.svg.arc()
 	.innerRadius(function(d) { return Math.max(0, d.y ? y(d.y) : d.y); })
 	.outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-var archivo = "json/remeri2";
-d3.json("data?id=3&level=2",formando);
-
+//var archivo = "json/remeri";
+//d3.json("data?level=2",formando);
+d3.json("json/remeri",formando);
+	
 function formando(json) 
 { 
 	var nodes = partition.nodes({children: json});
@@ -62,12 +63,12 @@ function formando(json)
 				return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
 			}*/
 		) //distancia del centro
-		.attr("dy", "-1.5em") //posición a lo horizontal
+		.attr("dy", "0") //posición a lo horizontal
 		.attr("transform", 
 			function(d) {
 				var multiline = (d.name || "").split(" ").length > 1,
 					angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
-					rotate = angle + (multiline ? -.5 : 0);
+					rotate = angle + (multiline ? -.1 : 0);
 					//return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
 					return "rotate(" + rotate + ")translate(" + (y(d.y) + padding ) + ")rotate(" + (0) + ")";
 			}
@@ -75,168 +76,104 @@ function formando(json)
 	  
 	textEnter.append("tspan")
 		.attr("x", 0)
-<<<<<<< HEAD
-		.text(function(d) { return d.depth ? d.name.split("/p")[0] : ""; });
+		.text(function(d) { return d.depth ? d.name.split(" ")[0] : ""; });
 
-	for (var num=1; num<6 ;num++)
+	for (var num=1; num<2 ;num++)
 	{
 		textEnter.append("tspan")
 			.attr("x", 0)
 			.attr("dy", "1em")
-			.text(function(d) { return d.depth ? d.name.split("/p")[num] || "" : ""; });
+			.text(function(d) { return d.depth ? d.name.split(" ")[num] || "" : ""; });
 	}
-=======
-		.text(function(d) { return d.depth ? d.name.split(" ")[0] : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split(" ")[1] || "" : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split(" ")[2] || "" : ""; });
-	textEnter.append("tspan")
-		.attr("x", 0)
-		.attr("dy", "1em")
-		.text(function(d) { return d.depth ? d.name.split(" ")[3] || "" : "" ; });
->>>>>>> 7b2635803f7bffd4aa37555be75ff049134e79f8
-
-	function click(d) {  
-			
-					
-		var angulo = x(d.x + d.dx / 2) * 180 / Math.PI - 90;
-		var rotacion = 360 - angulo;
-		var path = vis.selectAll("path").data(nodes);
-		path
-			.style("fill", colour)
-			.transition ()
-			.delay(0)
-			.duration(1000)
-			.attr("transform", "rotate(" + rotacion + ")");
-		theta = 0
-		var text = vis.selectAll("text").data(nodes);
-		text
-			.transition ()
-			.delay(0)
-			.duration(1000)
-			.attr("transform", 
-				function r(d) {
-						var multiline = (d.name || "").split(" ").length > 1,
-							angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90 + rotacion,
-							rotate = angle + (multiline ? -.5 : 0);
-							//return "rotate(" + rotate + ")translate(" + (y(d.y)) + ")";
-							return "rotate(" + angle + ")translate(" + (y(d.y) + padding) + ")";
-			}.bind(theta));
-		
-			
-		d3.select(this)
-			.style("fill", "000");
-						
-		if (d.children){}
-		else{
-			$("pre").remove();
-			if (d.name == 'social')
-			{
-				var opcion = 9;
-			} else {
-				opcion = 4;
-			};
-			
-			var nm=d.name.replace(/\/p/g, ',')
-			var nm2= nm.replace(/\ /g, ',')
-			var nm3= nm2.replace(/\,/g, ', ')
-			
-			$("#panel_publicaciones").html("<h4>" + nm3 + "</h4>");
-				
-			for (u=1; u<opcion; u++)
-			{ 
-				$.getJSON('select_click.php?id=' + u,function(result)
-				{
-					$('#panel_publicaciones').append("<pre>" + "<a href='" + result ['file_name'] + "' target='_blank'>" + result ['titulo'] + "</a>" )
-				});
-			}
-		}
-
-		//var archivo = "remeri2.json";
-		//alert ("adios");
-		//d3.json(archivo,hola);
 	
+	function click(d) {  
+					
 		/*path.transition()
 			.duration(duration)
-			.attrTween("d", arcTween(d))
-			// Somewhat of a hack as we rely on arcTween updating the scales.
-		text.style("visibility", 
-			function(e) {
-				return isParentOf(d, e) ? null : d3.select(this).style("visibility");
-			}
-		)//???
+			.attrTween("d", arcTween(d));*/
+		
+		/*d3.json("data?id="+ d.id +"&level=2", function(data) {
+		vis.selectAll("path")
+			.style("opacity", 1)
 			.transition()
-			.duration(duration)
-			.attrTween("text-anchor", 
-				function(d) {
-					return function() {
-						return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
-					};
-				}
-			)
-			.attrTween("transform", 
-				function(d) 
-				{
-					var multiline = (d.name || "").split(" ").length > 1;
-					return function() {
-						var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
-							rotate = angle + (multiline ? -.5 : 0);
-							return "rotate(" + rotate + ")translate(" + (y(d.y) + padding) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
-					};
-				}
-			)	
-			.style("fill-opacity", function(e) { return isParentOf(d, e) ? 2 : 1e-6; })
-			.each("end", 
-				function(e) {
-					d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden");
-				}
-			);*/	
+			.duration(1000)
+			.style("opacity", 0)
+			.remove();									
+		});	
+		
+		d3.json("json/remeri2",formando2);*/
+		
+		/*if (d.name=="teatro"){*/
+			var nm=d.name.replace(/\/p/g, ',')
+			var nm2= nm.replace(/\ /g, ',')
+			var nm3= nm2.replace(/\,/g, ', ');
+				
+			$("h4").remove();	
+			$('#panel_publicaciones').append("<h4>" + nm3 );	
+			
+			var angulo = x(d.x + d.dx / 2) * 180 / Math.PI - 90;
+			var rotacion = 360 - angulo;
+			var path = vis.selectAll("path").data(nodes);
+			path
+				.style("fill", colour)
+				.transition ()
+				.delay(0)
+				.duration(1000)
+				.attr("transform", "rotate(" + rotacion + ")");
+			theta = 0
+			var text = vis.selectAll("text").data(nodes);
+			text
+				.transition ()
+				.delay(0)
+				.duration(1000)
+				.attr("transform", 
+					function r(d) {
+							var multiline = (d.name || "").split(" ").length > 1,
+								angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90 + rotacion,
+								rotate = angle + (multiline ? -.5 : 0);
+								//return "rotate(" + rotate + ")translate(" + (y(d.y)) + ")";
+								return "rotate(" + angle + ")translate(" + (y(d.y) + padding) + ")";
+				}.bind(theta));
+			
+				
+			d3.select(this)
+				.style("fill", "000");
+				
+			$("pre").remove();
+				
+			$.getJSON('http://localhost:8080/web/php',function(result)
+			{
+				$('#panel_publicaciones').append("<pre>" + "<a href='" + result ['name'] + "' target='_blank'>" + result ['name'] + "</a>" )
+			});
+								
+
+			/*$.getJSON('select_click',function(result)
+					{
+						$('#panel_publicaciones').append("<pre>" + "<a href='" + result ['uri'] + "' target='_blank'>" + result ['name'] + "</a>" )
+					});*/
+					
+		/*}else{
+			formando2();
+		}
+		
+		valorinstitucion();
+		alert (uaslp);*/
 	}
 };	
 
-function rota(d,rotacion) {
-	console.log(rotacion);
-	var multiline = (d.name || "").split(" ").length > 1,
-		angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90 + rotacion,
-		rotate = angle + (multiline ? -.5 : 0);
-	console.log(rotacion);
-		//return "rotate(" + rotate + ")translate(" + (y(d.y)) + ")";
-	return "rotate(" + angle + ")translate(" + (y(d.y)) + ")";	
-}
-		
-function isParentOf(p, c) {
-  if (p === c) return true;
-  if (p.children) {
-    return p.children.some(function(d) {
-      return isParentOf(d, c);
-    });
-  }
-  return false;
-}
+function formando2(json) 
+{ 
+		vis.selectAll("path")
+			.style("opacity", 1)
+			.transition()
+			.duration(1000)
+			.style("opacity", 0)
+			.remove();					
+		d3.json("json/remeri2",formando);
+};	
 
 function colour(d) {
   return color((d.children ? d : d.parent).name);
-}
-
-
-// Interpolate the scales!
-function arcTween(d) {
-  var my = maxY(d),
-      xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
-      yd = d3.interpolate(y.domain(), [d.y, my]),
-      yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
-  return function(d) {
-    return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
-  };
-}
-
-function maxY(d) {
-  return d.children ? Math.max.apply(Math, d.children.map(maxY)) : d.y + d.dy;
 }
 
 // http://www.w3.org/WAI/ER/WD-AERT/#color-contrast

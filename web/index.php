@@ -1,10 +1,7 @@
 <?php
-<<<<<<< HEAD
-  require_once __DIR__.'/../vendor/autoload.php';
-=======
 require_once __DIR__.'/../vendor/autoload.php';
 require_once 'retrieval.php';
->>>>>>> 7b2635803f7bffd4aa37555be75ff049134e79f8
+require_once 'llamar.php';
 
 use RedBean_Facade as R;
 R::setup('mysql:host=localhost;dbname=sunburst','root','root');
@@ -26,7 +23,7 @@ $app->get('/html',function( ) {
 $app->get('/css/img/{fl}',function( $fl ) use ($app){
     return $app->sendFile("img/{$fl}.png");
 });
-  
+ 
 $app->get('/css/{fl}',function( $fl ) {
     $r = new Response();
     $r->setContent(file_get_contents("styles/{$fl}.css"));
@@ -40,12 +37,16 @@ $app->get('/js/{fl}',function( $fl ) {
     $r->headers->set('Content-Type', 'text/javascript');
     return $r;
 });
-  
+
+$app->get('/php', function(){
+	return numero();
+});
+
 $app->get('/json/{fl}',function( $fl ) use ($app) {
     $r = new Response();
     return $app->sendFile("{$fl}.json");
 });
-  
+ 
 $app->get('/img/{fl}',function( $fl ) use ($app) {
     return $app->sendFile("img/{$fl}.png");
 });
@@ -80,7 +81,6 @@ function getLayer($id, $level) {
             $d = $id->export();
             if (($level-1)) {
                 foreach($id->ownGrupo as $group) {
-                    error_log("Grup");
                     $data_group = getLayer($group["id"], $level-2);
                     $d["children"][] = $data_group;
                 }
@@ -95,7 +95,7 @@ function getLayer($id, $level) {
     $data["children"] = [];
     if ($level) {
         foreach ($group->ownGrupo as $child) {
-            error_log("child:".$child);
+            //error_log("child:".$child);
             $data["children"][] = getLayer($child->id, $level - 1);
         }
         if (!$group->ownGroup) {

@@ -1,38 +1,21 @@
 <?php
 require '../../vendor/autoload.php';
-	function process_layer_2($uri, $p_id)
-	{
-		global $enlace;
-		$doc = new DOMDocument();
-		$doc->loadHTMLFile("C:\\Users\\CHAMPY\\Documents\\Maestria\\Serviciobecario\\04_REMERI\\output\\$uri");
-		$renglones = $doc->getElementsByTagName('td');
-		
-		foreach($renglones as $renglon)
-		{
-			print "Nivel 2 ";
-			$gid = process_group_name($renglon,"nivel_2","nombre_nivel_2");
-			$cn_sql = "insert into nivel_2_a_nivel_1 (nivel_2_id, nivel_1_id) values ('$gid','$p_id')";
-			$enlace->query($cn_sql);
-			$documentos = $renglon->getElementsByTagName('a');
-			foreach($documentos as $documento)
-			{
-				$did = process_document($documento->getAttribute('href'));
-				if ($did != 0)
-					$cn_sql = "insert into publicacion_a_nivel_2 (nivel_2_id, publicacion_id) values ('$gid','$did')";
-				else 
-					print "error!!!";
-				$enlace->query($cn_sql);
-			}
-		}	
-		return $gid;
-	}
-	
-	
 use RedBean_Facade as R;
 R::setup('mysql:host=localhost;dbname=sunburst','root','root');
 R::$writer->setUseCache(true);
+R::debug(false);
+
+$institutions = array("UASLP", "UDLAP", "UAEH", "UV", "UAEMEX", "ITESM", "UDG",
+						"UCSJ");
+$types = array("tesis digital", "documento", "artículo", "elemento");
+
+$authors = file("names.dat", FILE_IGNORE_NEW_LINES);
+
+
 process_layer("raw/output/ReMeRi_1_1_0_0.html");
 R::close();
+
+
 	
 function process_layer($file, $parent = null) {
     $doc = new DOMDocument();
@@ -50,11 +33,12 @@ function process_layer($file, $parent = null) {
             }
             print $name.PHP_EOL;
             $addr = $renglon->GetElementsByTagName('a')->item(0)->getAttribute('href');
-            $ext = end(explode('.',$addr));
+			$splitname = explode('.',$addr);
+            $ext = end($splitname);
             if ($ext == "html") {
                 process_layer('raw/output/'.$addr,$group);
             } else {
-                process_document($addr, $parent);
+                process_document($addr, $group);
             }           
         }
     }
@@ -78,17 +62,24 @@ function process_group_name($renglon) {
 
 function process_document($uri, $parent)
 {
+	global $authors;
+	global $types;
+	global $institutions;
     $doc = file_get_contents("raw/output/{$uri}");
-    /* $cdoc = utf8_encode(substr($doc,0,100));  */
-    $cdoc = substr($doc,0,100);
+    $cdoc = utf8_encode(substr($doc,0,100));  
+    //$cdoc = substr($doc,0,100);
     $cdoc = str_replace("'","",$cdoc);
     $cdoc = str_replace('"',"",$cdoc);
     $document = R::dispense("document");
-    $document->title = $cdoc;
-    $document->author = "";
-    $document->year = "";
-    $document->institution = "";
+    $document->name = $cdoc;
+	$rauthor = array_rand($authors);
+    $document->author = $authors[$rauthor];
+    $document->year = rand(1564,2013);
+	$rinst = array_rand($institutions);
+    $document->institution = $institutions[$rinst];
     $document->uri = $uri;
+	$rtype = array_rand($types);
+	$document->type = $types[$rtype];
     $id = R::store($document);
     $parent->ownDocument[] = $document;
     R::store($parent);

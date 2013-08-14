@@ -1,17 +1,17 @@
 [
 	{
-		"name": "espacio texto/plectura mexicano/pmundo hombre/pmexicana cultura/pnarrativa arte",
+		"name": "espacio texto lectura mexicano mundo hombre mexicana cultura narrativa arte",
 		"children": 
 		[
 			{ 
-		  		"name": "José arte/pJuan carta"
+		  		"name": "José arte Juan carta"
 			},
 			{ 
-		  		"name": "texto mundo/pliteratura José"
+		  		"name": "texto mundo literatura José"
 		  		
 			},
 			{ 
-		  		"name": "cultural sociedad/pidentidad espacio/plectura mexicana/pcultura narrativa/psiglo"
+		  		"name": "cultural sociedad identidad espacio lectura mexicana cultura narrativa siglo"
 			},
 			{ 
 		  		"name": "novela obra"
@@ -20,25 +20,25 @@
 		  		"name": "teatro"
 			},
 			{ 
-		  		"name": "mexicano hombre/phistoria"
+		  		"name": "mexicano hombre historia"
 			}
 		]
   	},
 	{
-		"name": "sistemas impacto/phacia empresas/ppacientes comunidad/pPotosí plan/ptiempo comportamiento",
+		"name": "sistemas impacto hacia empresas pacientes comunidad Potosí plan tiempo comportamiento",
 		"children": 
 		[
 			{ 
-		  		"name": "bajo herramienta/pzona región/porganizaciones mexicanas/pcreación construcción/psistemas imagen"
+		  		"name": "bajo herramienta zona región organizaciones mexicanas creación construcción sistemas imagen"
 			},
 			{ 
-		  		"name": "libre implementacion/pcomercio características/psociales pruebas/pelaboración valor/ppresencia alternativa"
+		  		"name": "libre implementacion comercio características sociales pruebas elaboración valor presencia alternativa"
 			},
 			{ 
-		  		"name": "poemas evolución/psector internet/pindustrial enfoque/palta busca/pservicios personas"
+		  		"name": "poemas evolución sector internet industrial enfoque alta busca servicios personas"
 			},
 			{ 
-		  		"name": "prevalencia muerte/pmunicipio agropecuaria"
+		  		"name": "prevalencia muerte municipio agropecuaria"
 			},
 			{ 
 		  		"name": "comportamiento poemas"
@@ -46,24 +46,24 @@
 		]
   	},
 	{
-		"name": "informacion México/pproceso desarrollo/pmediante diferentes/presultados nivel/pmayor tipo",
+		"name": "informacion México proceso desarrollo mediante diferentes resultados nivel mayor tipo",
 		"children": 
 		[
 			{ 
-		  		"name": "desarrollo México/presultados diferentes/pcalidad tipo/pmedio través/p importancia investigación"
+		  		"name": "desarrollo México resultados diferentes calidad tipo medio través  importancia investigación"
 			},
 			{ 
-		  		"name": "investigación resultados/pmedios estudiantes/pmedio"
+		  		"name": "investigación resultados medios estudiantes medio"
 			},
 			{ 
 		  		"name": "capítulo investigación"
 			},
 			{ 
-		  		"name": "investigación modelo/pmedio cuales/pdiferentes mediante/pproceso industria/palimentos efecto"
+		  		"name": "investigación modelo medio cuales diferentes mediante proceso industria alimentos efecto"
 			}
 			,
 			{ 
-		  		"name": "tipo importancia/presultados mismo/ptravés características/pinvestigación proceso/pforma dentro"
+		  		"name": "tipo importancia resultados mismo través características investigación proceso forma dentro"
 			}
 			,
 			{ 
@@ -76,7 +76,7 @@
 		]
   	},
 	{
-		"name": "trabajo/pdesarrollo/psocial",
+		"name": "trabajo desarrollo social",
 		"children": 
 		[
 			{ 
@@ -89,7 +89,7 @@
 		  		"name": "desarrollo trabajo"
 			},
 			{ 
-		  		"name": "trabajo/psocial"
+		  		"name": "trabajo social"
 			},
 			{ 
 		  		"name": "social"
